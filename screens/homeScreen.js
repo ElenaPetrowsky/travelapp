@@ -3,15 +3,8 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import SPACING from "../config/SPACING";
 
 export function Home(){
-    return(
-        <View style={style.container}>
-            <Text style={style.head}> Favoris </Text>
-            <Text style={style.head}> Rechercher </Text>
-            <Text style={style.head}> Tests </Text>
-            <Image 
-                source={require("")}
-            />
-        </View>
+    return (
+        <Text> Accueil </Text>
     )
 }
 

@@ -1,12 +1,13 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { Home } from './screens/homeScreen'
+// import React from 'react';
+import {SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Tabs from './navigation/tabs';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <Home></Home>
-    </SafeAreaView>
+      <NavigationContainer>
+        <Tabs />
+    </NavigationContainer>
   );
 }
 
