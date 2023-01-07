@@ -10,7 +10,7 @@ import {
 export function Search() {
     return (
         <View style={style.container}>
-            <Text> Rechercher </Text>
+            <Text style={{fontSize: SPACING*4, fontWeight:"bold", color:"grey"}}> Mes Recherches</Text>
             <Button 
                 title="Bouton"
                 onPress={()=>{alert('Click sur le bouton')}}
@@ -24,6 +24,6 @@ const style = StyleSheet.create({
         flex:1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: COLORS.dark
+        backgroundColor: "white"
     }
 })

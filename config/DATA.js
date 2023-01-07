@@ -1,0 +1,93 @@
+export const places = [
+    {
+        "entityId": "99539624",
+        "iataCode": "ABJ",
+        "parentId": "27547467",
+        "name": "Abidjan",
+        "countryId": "CI",
+        "countryName": "Côte d'Ivoire",
+        "cityName": "Abidjan",
+        "location": "5.256389,-3.926944",
+        "hierarchy": "Abidjan (ABJ), Abidjan|Région des Lagunes|Côte d'Ivoire",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": []
+    },
+    {
+        "entityId": "95565040",
+        "iataCode": "ORY",
+        "parentId": "27539733",
+        "name": "Paris Orly",
+        "countryId": "FR",
+        "countryName": "France",
+        "cityName": "Paris",
+        "location": "48.728889,2.357222",
+        "hierarchy": "Paris Orly (ORY), Paris|Île-de-France|France",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": []
+    },
+    {
+        "entityId": "95673635",
+        "iataCode": "TLV",
+        "parentId": "27546296",
+        "name": "David-Ben-Gourion International",
+        "countryId": "IL",
+        "countryName": "Israël",
+        "cityName": "Tel-Aviv-Jaffa",
+        "location": "32.0054774,34.8853146",
+        "hierarchy": "David-Ben-Gourion International (TLV), Tel-Aviv-Jaffa|District de Tel Aviv|Israël",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": []
+    },
+    {
+        "entityId": "29475370",
+        "iataCode": "MA",
+        "parentId": "29475370",
+        "name": "Maroc",
+        "countryId": "MA",
+        "countryName": "Maroc",
+        "cityName": "",
+        "location": "31.8537355306,-6.28022404",
+        "hierarchy": "Maroc",
+        "type": "PLACE_TYPE_COUNTRY",
+        "highlighting": []
+    },
+    {
+        "entityId": "95673387",
+        "iataCode": "CMN",
+        "parentId": "27539689",
+        "name": "Casablanca Mohamed V.",
+        "countryId": "MA",
+        "countryName": "Maroc",
+        "cityName": "Casablanca",
+        "location": "33.366667,-7.586667",
+        "hierarchy": "Casablanca Mohamed V. (CMN), Casablanca|Préfecture de Casablanca|Maroc",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": []
+    },
+    {
+        "entityId": "29475351",
+        "iataCode": "CI",
+        "parentId": "29475351",
+        "name": "Côte d'Ivoire",
+        "countryId": "CI",
+        "countryName": "Côte d'Ivoire",
+        "cityName": "",
+        "location": "7.6230228159,-5.5549868827",
+        "hierarchy": "Côte d'Ivoire",
+        "type": "PLACE_TYPE_COUNTRY",
+        "highlighting": []
+    },
+    {
+        "entityId": "29475385",
+        "iataCode": "MXN",
+        "parentId": "29475385",
+        "name": "France",
+        "countryId": "FR",
+        "countryName": "France",
+        "cityName": "",
+        "location": "46.5525478148,2.5256872161",
+        "hierarchy": "France",
+        "type": "PLACE_TYPE_COUNTRY",
+        "highlighting": []
+    }
+]
