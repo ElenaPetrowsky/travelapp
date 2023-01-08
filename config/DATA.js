@@ -89,5 +89,103 @@ export const places = [
         "hierarchy": "France",
         "type": "PLACE_TYPE_COUNTRY",
         "highlighting": []
+    },
+    {
+        "entityId": "95673353",
+        "iataCode": "YYZ",
+        "parentId": "27536640",
+        "name": "Toronto Pearson International",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Toronto",
+        "location": "43.683333,-79.633333",
+        "hierarchy": "Toronto Pearson International (YYZ), Toronto|Ontario|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "95673384",
+        "iataCode": "YUL",
+        "parentId": "27536613",
+        "name": "Montréal Pierre Elliott Trudeau",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Montréal",
+        "location": "45.463889,-73.75",
+        "hierarchy": "Montréal Pierre Elliott Trudeau (YUL), Montréal|Laval|Québec|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "95673427",
+        "iataCode": "YVR",
+        "parentId": "27537411",
+        "name": "Vancouver International",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Vancouver",
+        "location": "49.187222,-123.185278",
+        "hierarchy": "Vancouver International (YVR), Vancouver|Colombie-Britannique|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "95673660",
+        "iataCode": "YWG",
+        "parentId": "27537415",
+        "name": "Winnipeg",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Winnipeg",
+        "location": "49.908124,-97.238961",
+        "hierarchy": "Winnipeg (YWG), Winnipeg|Manitoba|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "95673531",
+        "iataCode": "YYC",
+        "parentId": "27537443",
+        "name": "Calgary",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Calgary",
+        "location": "51.114084,-114.021263",
+        "hierarchy": "Calgary (YYC), Calgary|Alberta|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "29475436",
+        "iataCode": "YFX",
+        "parentId": "29475436",
+        "name": "Canada",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "",
+        "location": "61.5850876128,-97.9409071974",
+        "hierarchy": "Canada",
+        "type": "PLACE_TYPE_COUNTRY",
+        "highlighting": [
+        ]
+    },
+    {
+        "entityId": "95673638",
+        "iataCode": "YEG",
+        "parentId": "27536402",
+        "name": "Edmonton International",
+        "countryId": "CA",
+        "countryName": "Canada",
+        "cityName": "Edmonton",
+        "location": "53.309722,-113.579722",
+        "hierarchy": "Edmonton International (YEG), Edmonton|Alberta|Canada",
+        "type": "PLACE_TYPE_AIRPORT",
+        "highlighting": [
+        ]
     }
 ]

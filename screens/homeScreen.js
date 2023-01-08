@@ -1,11 +1,9 @@
 import React from "react";
-import { View, Text, TextInput , ScrollView, TouchableOpacity,  StyleSheet, Image, Button, ImageBackground} from "react-native";
-import SPACING from "../config/SPACING";
+import { View, Text, TextInput , ScrollView, TouchableOpacity, Image, ImageBackground} from "react-native";
 import COLORS from "../config/COLORS";
-import { Search } from "../components/search";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Octicons from "@expo/vector-icons/Octicons"
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons"
+import { Ville } from "../components/ville";
 
 export function Home() {
     return (
@@ -32,7 +30,7 @@ export function Home() {
             style={{
               fontSize: 40,
               color: COLORS.text,
-              fontFamily: "RobotoBold",
+              //fontFamily: "RobotoBold",
             }}
           >
             Salut
@@ -44,7 +42,7 @@ export function Home() {
               paddingVertical: 10,
               paddingRight: 80,
               lineHeight: 22,
-              fontFamily: "RobotoRegular",
+              //fontFamily: "RobotoRegular",
               color: COLORS.text,
             }}
           >
@@ -139,7 +137,7 @@ export function Home() {
           <Text
             style={{
               color: COLORS.text,
-              fontFamily: "RobotoRegular",
+              //fontFamily: "RobotoRegular",
               marginTop: 20,
               fontSize:16,
               fontWeight : "bold"
@@ -153,49 +151,9 @@ export function Home() {
             showsHorizontalScrollIndicator={false}
             style={{ marginHorizontal: -30, marginTop: 30 }}
           >
-            <View
-              style={{
-                backgroundColor: "#FEFEFE",
-                height: 280,
-                width: 230,
-                borderRadius: 15,
-                padding: 5,
-                marginHorizontal: 10,
-              }}
-            >
-              <Image
-                source={require("../images/santorini.jpg")}
-                style={{ width: "100%", borderRadius: 10, height: "70%" }}
-              />
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
-                <View
-                  style={{
-                    paddingHorizontal: 5,
-                    paddingVertical: 5,
-                    flexDirection: "row",
-                    alignContent: "space-between"
-                  }}
-                >
-                  <Text
-                    style={{
-                      flex: 5,
-                      fontFamily: "RobotoRegular",
-                      fontSize: 11,
-                      color: "#a2a2db",
-                    }}
-                  >
-                    Les magnifiques maisons de Santorini en Grèce. Dans cette ville vous trouverez des maisons à couper le souffle.
-                  </Text>
-                  <SimpleLineIcons style={{flex: 1, alignSelf: "center"}} name="bag" size={25} color="#ff5c83" />
-                </View>
-              </View>
-            </View>
+            <Ville 
+              description={"Du Texte"} image={"../images/paris.jpg"}
+            />
 
             <View
               style={{
@@ -229,7 +187,7 @@ export function Home() {
                   <Text
                     style={{
                       flex: 5,
-                      fontFamily: "RobotoRegular",
+                      //fontFamily: "RobotoRegular",
                       fontSize: 11,
                       color: "#a2a2db",
                     }}
@@ -273,7 +231,7 @@ export function Home() {
                   <Text
                     style={{
                       flex: 5,
-                      fontFamily: "RobotoRegular",
+                      //fontFamily: "RobotoRegular",
                       fontSize: 11,
                       color: "#a2a2db",
                     }}
@@ -291,9 +249,3 @@ export function Home() {
 
     )
 }
-
-const style = StyleSheet.create({
-    container: {
-
-    }
-})
