@@ -1,11 +1,9 @@
-import React from "react";
+import Icon from "@expo/vector-icons/Octicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home} from '../screens/homeScreen';
-import { Favoris} from '../screens/favoriteScreen';
-import { Settings} from '../screens/settingScreen';
-import { Search } from '../screens/searchScreen';
-import Icon from "@expo/vector-icons/Octicons"
-import COLORS from "../config/COLORS";
+import React from "react";
+import { Favoris } from '../screens/favoriteScreen';
+import { Settings } from '../screens/settingScreen';
+import Home from '../screens/Home';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +18,7 @@ const Tabs = () => {
                 height:60, 
                 elevation: 0, 
                 borderTopWidth: 0, 
-                backgroundColor: COLORS.dark, 
+                backgroundColor: "#000", 
                 // borderTopStartRadius: 15, 
                 // borderTopEndRadius: 15,
             },
@@ -34,7 +32,7 @@ const Tabs = () => {
                 } else {
                     iconName = 'gear'
                 }
-                return <Icon name={iconName} size={30} color={focused ? COLORS.blue : 'white'} />;
+                return <Icon name={iconName} size={30} color={focused ? "blue" : 'white'} />;
             },
             tabBarShowLabel: false,
             

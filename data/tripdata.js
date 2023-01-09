@@ -1,0 +1,33 @@
+export const rooms = [
+
+  {
+    id: 5,
+    title: "Abidjan - Paris",
+    property_type: "maison entière",
+    city: "Paris",
+    check_in_date: "2019-10-20",
+    check_out_date: "2019-10-22",
+    reservation: "JGK4893",
+    max_capacity: 4,
+    bedrooms: 1,
+    beds: 4,
+    baths: 1,
+    rating: 4.87,
+    reviews: 98,
+    price: 125,
+    discount_rate: 0,
+    features: ["one", "two", "three"],
+    images: [
+      "https://a0.muscache.com/im/pictures/dea004da-ce7c-4b96-8ded-788ef3168349.jpg",
+      "https://a0.muscache.com/im/pictures/6a4518bf-30b5-423a-bce9-ca37ef8684f2.jpg",
+      "https://a0.muscache.com/im/pictures/4c01023f-0bf0-4be9-9b9a-7fca7f2e0f39.jpg",
+      "https://a0.muscache.com/im/pictures/d9cb5d9c-180b-47e4-a4da-a0ef60183e6c.jpg",
+      "https://a0.muscache.com/im/pictures/694715b0-d81f-42d8-b7a3-219c13f7e3e9.jpg",
+    ],
+    is_wishlist: false,
+    latitude: "33.323511",
+    longitude: "126.665597",
+    characteristics: true,
+    tag: true,
+  },
+];

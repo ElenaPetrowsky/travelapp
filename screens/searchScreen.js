@@ -1,11 +1,8 @@
 import React from "react";
-import COLORS from '../config/COLORS'
 import {
-    View,
-    Text,
     Button,
-    StyleSheet
-} from 'react-native'
+    StyleSheet, Text, View
+} from 'react-native';
 
 export function Search() {
     return (

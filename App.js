@@ -1,12 +1,16 @@
 // import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import Tabs from './navigation/tabs';
+import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import { Provider } from "react-redux";
+import Tabs from "./navigation/HomeStack";
+import { store } from "./store/store";
 
 export default function App() {
   return (
-      <NavigationContainer>
+    <NavigationContainer>
+      <Provider store={store}>
         <Tabs />
+      </Provider>
     </NavigationContainer>
   );
 }
@@ -14,8 +18,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

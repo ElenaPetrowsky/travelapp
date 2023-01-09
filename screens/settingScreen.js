@@ -1,12 +1,7 @@
 import React from "react";
-import COLORS from '../config/COLORS'
 import {
-    View,
-    Text,
-    Button,
-    StyleSheet,
-    ImageBackground
-} from 'react-native'
+    ImageBackground, StyleSheet, View
+} from 'react-native';
 
 export function Settings() {
     return (

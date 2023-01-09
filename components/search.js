@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TextInput } from "react-native-paper";
 import { View, StyleSheet } from "react-native";
-import COLORS from "../config/COLORS.js";
 
 
 export function Search(){
@@ -24,7 +23,7 @@ export function Search(){
 const style = StyleSheet.create({
     input: {
         marginTop:40,
-        backgroundColor: COLORS.purple,
+        backgroundColor: "purple",
         borderTopStartRadius:25,
         borderTopEndRadius:25,
         height: 70,

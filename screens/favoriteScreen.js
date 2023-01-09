@@ -1,84 +1,82 @@
+import FontAwesomeIcon from "@expo/vector-icons/FontAwesome5";
 import React from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { places } from "../config/DATA";
-import FontAwesomeIcon from '@expo/vector-icons/FontAwesome5'
-import {
-    View,
-    Text,
-    Button,
-    StyleSheet,
-    ScrollView,
-    FlatList
-} from 'react-native'
-import COLORS from "../config/COLORS";
+import { getToken } from "../utils/Tokens";
+import { useSelector, useDispatch } from "react-redux";
+import TrajetList from "../components/TrajetList";
+import { loadFavorite } from "../store/Favorite/FavoriteSlice";
+import { addCountry } from "../store/Search/SearchSlice";
+import LottieView from "lottie-react-native";
+import * as Typography from "../config/Typography";
+
+import styled from "styled-components";
 
 
-// export function Favoris() {
-//     return (
-//         <View style={style.container}>
-//             <ScrollView>
-//                 <View>
-//                 {places.map((places) => {
-//                     return (
-//                     <View>
-//                         <Text style={style.item}>{places.name}</Text>
-//                     </View>
-//                     );
-//                 })}
-//                 </View>
-//             </ScrollView>
-//         </View>
-//     )
-// }
+export const Favoris = (props) => {
+  const favorites = useSelector((state) => state.favorite.favorites);
+  const dispatch = useDispatch();
+  const handleDestination = (item) => {
+    dispatch(addCountry(item));
 
-export const Favoris = () => {
-    return (
-        <View style= {{ flex:1}}>
-            <FlatList
-                data={places}
-                keyExtractor={item=>item.entityId}
-                renderItem={({item, index})=>{
-                    return (
-                        <View style={{flexDirection: "row"}}>
-                            <FontAwesomeIcon
-                                {...((item)=>{
-                                    let iconName = ""
-                                    let iconColor = ""
-                                    switch (item.type) {
-                                        case "PLACE_TYPE_AIRPORT":
-                                            iconName = "plane-departure"
-                                            iconColor = "#a2a2db"
-                                            break;
-                                        case "PLACE_TYPE_COUNTRY":
-                                            iconName = "globe-africa"
-                                            iconColor = "#5facdb"
-                                            break;
-                                        default:
-                                            iconName = "map-marked"
-                                    }
+    props.navigation.navigate("Details");
+  };
 
-                                    return {name:iconName, size:45, color: iconColor};
-                                })(item)}
-                            />
-                            <View>
-                                <Text style={{color: COLORS.dark, fontSize:18}}> {item.name} </Text>
-                                <Text> {item.cityName} ({item.iataCode}), {item.countryName} </Text>
-                            </View>
-                        </View>
-                    )
-                }}
+  const LoadFavorites = async () => {
+    let data = await getToken();
+
+    try {
+      let favorite = JSON.parse(data);
+      dispatch(loadFavorite(favorite));
+    } catch (error) {}
+  };
+
+  React.useEffect(() => {
+    LoadFavorites();
+  }, []);
+
+  return (
+    <View style={{ flex: 1, marginTop: 50 }}>
+      <FlatList
+        data={favorites}
+        keyExtractor={(item) => item?.name}
+        renderItem={({ item, index }) => {
+          return (
+            <TrajetList
+              onPress={() => handleDestination(item)}
+              available={""}
+              key={item?.name}
+              image={require("../assets/bus.png")}
+              name={item?.name}
+              unitprice={"45Km"}
+              profile={require("../assets/bus.png")}
+              img={require("../assets/bus.png")}
+              title={item?.name}
+              bg="#E6E8EB"
             />
-        </View>
-    )
-}
+          );
+        }}
+        ListEmptyComponent={
+          <ViewContainer>
+            <LottieView
+              style={{ width: 200, height: 200 }}
+              source={require("../assets/61372-404-error-not-found.json")}
+              autoPlay
+              loop
+            />
+            <Typography.H2>
+              Aucune Favoris pour l'instant
+            </Typography.H2>
+          </ViewContainer>
+        }
+      />
+    </View>
+  );
+};
 
-const style = StyleSheet.create({
-    container: {
-      padding: 50,
-      flex: 1,
-    },
-    item: {
-      padding: 20,
-      fontSize: 15,
-      marginTop: 5,
-    }
-  });
+const ViewContainer = styled.View`
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+`;
+
