@@ -9,16 +9,16 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
-import {getToken,setToken} from "../utils/Tokens"
-import { addFavorite } from '../store/Favorite/FavoriteSlice'
-import MapView from 'react-native-maps';
+import { getToken, setToken } from "../utils/Tokens";
+import { addFavorite } from "../store/Favorite/FavoriteSlice";
+import MapView from "react-native-maps";
 
 //import components
 import * as Button from "../components/Button";
 import * as Highlights from "../components/Highlights";
 import ImgCarousel from "../components/ImgCarousel";
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 //import screens
 
 //import styles and assets
@@ -28,17 +28,17 @@ import * as Typography from "../config/Typography";
 import { fetchNewData } from "../api/api";
 
 const DetailsMyPost = ({ navigation, route }) => {
-
   const opacityValue = new Animated.Value(0);
   const [headerOpacity, setHeaderOpacity] = useState(opacityValue);
   const [images, setImages] = useState([]);
   const [type, settype] = useState("PLANE");
   const types = ["PLANE", "BUS", "BÂTEAU", "VOITURE", "TRAIN"];
   const country = useSelector((state) => state.search.selectedCountry);
-  const isAdded = useSelector((state) => state.favorite.favorites.find((item)=>item?.name===country?.name));
+  const isAdded = useSelector((state) =>
+    state.favorite.favorites.find((item) => item?.name === country?.name)
+  );
   const favorites = useSelector((state) => state.favorite.favorites);
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
 
   const listing = {
     id: "",
@@ -62,18 +62,15 @@ const DetailsMyPost = ({ navigation, route }) => {
     setImages(temp);
   };
 
+  const addFavoriteToDatabase = () => {
+    dispatch(addFavorite(country));
+  };
 
-  const addFavoriteToDatabase =()=>{
-    dispatch(
-      addFavorite(country)
-      )
-    }
-    
-    useEffect(() => {
-      let string = JSON.stringify(favorites)
-      setToken(string)
-  }, [favorites])
-  
+  useEffect(() => {
+    let string = JSON.stringify(favorites);
+    setToken(string);
+  }, [favorites]);
+
   useEffect(() => {
     HandlerImages();
     settype(types[Math.random() * types.length - 1]);
@@ -218,22 +215,24 @@ const DetailsMyPost = ({ navigation, route }) => {
         </Section>
 
         <MapView
-    initialRegion={{
-      latitude: parseFloat(country?.lat),
-      longitude: parseFloat(country?.lng),
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    }}
-    style={{
-      width:400,
-      height:400
-    }}
-  />
+          initialRegion={{
+            latitude: parseFloat(country?.location?.split(",")[0]),
+            longitude: parseFloat(country?.location?.split(",")[1]),
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          style={{
+            width: 400,
+            height: 400,
+          }}
+        />
       </ScrollView>
       <Reserve>
         <BtnContainer>
           <Button.BtnContain
-            label={` ${!isAdded ? "Ajouter au favoris" : "Supprimer des favoris"} `}
+            label={` ${
+              !isAdded ? "Ajouter au favoris" : "Supprimer des favoris"
+            } `}
             color={!isAdded ? colors.darkgray : colors.redaccent}
             onPress={addFavoriteToDatabase}
             // icon={

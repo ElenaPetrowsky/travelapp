@@ -1,27 +1,19 @@
+import axios from "axios";
 
-export const getCities = (city) => {
-  return fetch(`http://151.236.216.240:4000/cities?q=${city}&_sort=name&_order=asc&_limit=15`)
-    .then(response => response.json())
-    .then(responseJson => {
-      return responseJson;
-    })
-    .catch(error => {
-      console.error(error);
-    });
+export const getCities = async (city) => {
+  let url = `https://partners.api.skyscanner.net/apiservices/v3/autosuggest/flights`;
+  const data = await axios.post('https://partners.api.skyscanner.net/apiservices/v3/autosuggest/flights',
+  { query : {
+      "locale": "en-GB",
+      "market": "UK",
+      "searchTerm": city
+  }},
+  { headers: {
+      'x-api-key':'prtl6749387986743898559646983194'
+  }}
+
+)
+
+return data?.data
+
 };
-
-
-
-export const getCountry = (isocode) => {
-  return fetch(`http://151.236.216.240:4000/countries?iso2_like=${isocode}`)
-    .then(response => response.json())
-    .then(responseJson => {
-      return responseJson;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-};
-
-
-

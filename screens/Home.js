@@ -1,25 +1,28 @@
-import React, {
-  useRef,
-  useState
-} from "react";
+import React, { useRef, useState } from "react";
 import BottomSheet from "react-native-gesture-bottom-sheet";
 import * as Button from "../components/Button";
 
 import {
   Animated,
-  Image, Modal, SafeAreaView, ScrollView, FlatList,StatusBar, Text, TouchableOpacity,
-  TouchableWithoutFeedback, View
+  Image,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import CountryFlag from "react-native-country-flag";
 import { TextButton } from "../components";
 
-
 //Redux
-import { useSelector, useDispatch } from 'react-redux'
-import { addCountry } from '../store/Search/SearchSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { addCountry } from "../store/Search/SearchSlice";
 
-import UseCities from "../hooks/UseCities"
-
+import UseCities from "../hooks/UseCities";
 
 //import components
 import { COLORS, dummyData, FONTS, SIZES } from "../Constants";
@@ -34,8 +37,7 @@ import LottieView from "lottie-react-native";
 import Icon from "react-native-vector-icons/Feather";
 
 const Home = (props) => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const COUNTRIES_ITEM_SIZE = SIZES.width / 3;
   const PLACES_ITEM_SIZE =
@@ -51,11 +53,9 @@ const Home = (props) => {
     "Ajouter une destination"
   );
 
-
   const [dot, setdot] = useState("..........");
   const [destination, setdestination] = useState("");
   const [priseencharge, setpriseencharge] = useState("");
-
 
   const countryScrollX = useRef(new Animated.Value(0)).current;
   const placesScrollX = useRef(new Animated.Value(0)).current;
@@ -66,11 +66,9 @@ const Home = (props) => {
   );
 
   const handleDestination = (item) => {
-    setSearch(false)
-    dispatch(
-      addCountry(item)
-    )
-    console.log(props)
+    setSearch(false);
+    dispatch(addCountry(item));
+
     props.navigation.navigate("Details");
     //bottomSheetred.current.show();
   };
@@ -96,14 +94,13 @@ const Home = (props) => {
         <SearchText>{item.name}</SearchText>
         <FlagCountainer>
           <FlagText>Pays: </FlagText>
-          <CountryFlag isoCode={item.country} size={12} />
+          <CountryFlag isoCode={item.countryId} size={12} />
         </FlagCountainer>
       </ContainerText>
     </SearchMain>
   );
 
   function renderHeader() {
-
     return (
       <View>
         <View
@@ -112,13 +109,16 @@ const Home = (props) => {
             paddingHorizontal: SIZES.padding,
             paddingVertical: 10,
             alignItems: "center",
-            marginTop:50,
+            marginTop: 50,
             justifyContent: "space-between",
           }}
         >
-
-          <View style={{ alignItems: "center", justifyContent: "center" }} >
-            <Text style={{ color: COLORS.black, ...FONTS.h2 ,fontWeight: "bold"}}>Bienvenue sur TravelMap</Text>
+          <View style={{ alignItems: "center", justifyContent: "center" }}>
+            <Text
+              style={{ color: COLORS.black, ...FONTS.h2, fontWeight: "bold" }}
+            >
+              Bienvenue sur TravelMap
+            </Text>
           </View>
         </View>
       </View>
@@ -231,9 +231,9 @@ const Home = (props) => {
   }
 
   function exploreButtonHandler(item) {
-    props.setDestinationType(item.name);
-    const currentIndex = parseInt(placesScrollPosition, 10) + 1;
-    props.navigation.navigate("AddGuest");
+    setSearch(false)
+    dispatch(addCountry(item?.info));
+    props.navigation.navigate("Details");
   }
 
   function renderPlaces() {
@@ -381,6 +381,7 @@ const Home = (props) => {
     );
   }
 
+  console.log(cities, "deu");
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -405,7 +406,7 @@ const Home = (props) => {
             </ActionContainerItems>
             <ActionContainerItems
               onPress={() => {
-                props.navigation.navigate("Details");
+                props.navigation.navigate("Favoris");
               }}
             >
               <ImageItem
@@ -416,9 +417,7 @@ const Home = (props) => {
                 <TextItem>Voir les</TextItem>
                 <TextItem>favoris</TextItem>
               </View>
-              <View>
-                
-              </View>
+              <View></View>
             </ActionContainerItems>
           </ActionContainer>
           <View style={{ height: 600 }}>
@@ -454,15 +453,15 @@ const Home = (props) => {
             )}
           </SearchArea>
           <TouchableOpacity onPress={() => setSearch(false)}>
-            <CancelBtn >Annuler la recherche</CancelBtn>
+            <CancelBtn>Annuler la recherche</CancelBtn>
           </TouchableOpacity>
 
-           {!sending && (
+          {!sending && (
             <FlatList
               refreshing={sending}
               data={cities}
               renderItem={renderItem}
-              keyExtractor={(item) => item.lat}
+              keyExtractor={(item) => item.entityId}
               ListEmptyComponent={
                 <ViewContainer>
                   <LottieView
@@ -471,18 +470,16 @@ const Home = (props) => {
                     autoPlay
                     loop
                   />
-                  <Typography.H2>
-                    Aucun résultat
-                  </Typography.H2>
+                  <Typography.H2>Aucun résultat</Typography.H2>
                 </ViewContainer>
               }
             />
-          )} 
+          )}
           {sending && (
             <ViewContainer>
               <LottieView
                 style={{ width: 200, height: 200 }}
-                source={require("../assets/62215-delivery-guy.json")}
+                source={require("../assets/72169-plane-flies-around-the-earth.json")}
                 autoPlay
                 loop
               />

@@ -7,10 +7,11 @@ const UseCities = (city, handler) => {
   useEffect(() => {
     handler(true);
 
-    if (city.length > 1) {
+    if (city.length > 2) {
       getCities(city)
         .then((response) => {
-          setCities(response);
+          // console.log(response?.places)
+          setCities(response?.places);
           handler(false);
         })
         .catch((error) => {

@@ -7,3 +7,5 @@ export const fetchNewData = async (query) => {
   return response.json();
 };
 
+
+

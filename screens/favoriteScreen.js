@@ -14,6 +14,11 @@ import styled from "styled-components";
 
 
 export const Favoris = (props) => {
+
+  const types = ["../assets/bus.png", "../assets/bus.png", "../assets/bus.png", "../assets/bus.png", "../assets/bus.png"];
+
+
+
   const favorites = useSelector((state) => state.favorite.favorites);
   const dispatch = useDispatch();
   const handleDestination = (item) => {
@@ -21,6 +26,7 @@ export const Favoris = (props) => {
 
     props.navigation.navigate("Details");
   };
+
 
   const LoadFavorites = async () => {
     let data = await getToken();
@@ -46,11 +52,11 @@ export const Favoris = (props) => {
               onPress={() => handleDestination(item)}
               available={""}
               key={item?.name}
-              image={require("../assets/bus.png")}
+              image={require("../assets/commercial-plane.png")}
               name={item?.name}
-              unitprice={"45Km"}
-              profile={require("../assets/bus.png")}
-              img={require("../assets/bus.png")}
+              unitprice={item?.countryName}
+              profile={require("../assets/commercial-plane.png")}
+              img={require("../assets/commercial-plane.png")}
               title={item?.name}
               bg="#E6E8EB"
             />
